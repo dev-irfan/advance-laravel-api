@@ -1,0 +1,21 @@
+grumphp:
+    tasks: 
+        phpunit: 
+            config_file: 'phpunit.xml'
+            group: 'unit'
+            triggered_by: ['php']
+        phpcsfixer: 
+            config: '.php_cs.dist'
+            verbose: true
+            allow_risky: true
+            rules: '@PSR2'
+        phpmd: 
+            ruleset: ['cleancode', 'codesize', 'naming', 'unusedcode']
+            triggered_by: ['php']
+        phpstan: 
+            level: 5
+            configuration: 'phpstan.neon'
+            triggered_by: ['php']
+        composer: 
+            file: 'composer.json'
+            no_check_all: false
